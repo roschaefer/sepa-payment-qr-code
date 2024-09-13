@@ -1,6 +1,4 @@
-'use strict'
-
-const generateQrCode = require('.')
+import generateQrCode from '.'
 
 console.log(generateQrCode({
 	name: 'Red Cross of Belgium',

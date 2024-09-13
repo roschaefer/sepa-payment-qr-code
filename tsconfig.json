@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "outDir": "dist"
+  },
+  "files": [
+    "index.ts",
+    "example.ts",
+    "test.ts"
+  ]
+}

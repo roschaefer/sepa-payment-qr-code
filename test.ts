@@ -1,7 +1,5 @@
-'use strict'
-
-const a = require('assert')
-const generateQrCode = require('.')
+import { strictEqual, throws } from 'assert'
+import generateQrCode from '.'
 
 const ex1 = {
 	name: 'Red Cross of Belgium',
@@ -14,7 +12,7 @@ const ex1 = {
 	information: 'foo bar'
 }
 
-a.strictEqual(generateQrCode(ex1), `\
+strictEqual(generateQrCode(ex1), `\
 BCD
 002
 1
@@ -32,14 +30,14 @@ foo bar`)
 {
 	const ex2 = {...ex1}
 	delete ex2.iban
-	a.throws(() => {
+	throws(() => {
 		generateQrCode(ex2)
 	}, 'throws with missing data.iban')
 }
 
 // invalid data.iban
 {
-	a.throws(() => {
+	throws(() => {
 		generateQrCode({
 			...ex1,
 			iban: 'BE00000000000000',
@@ -48,7 +46,7 @@ foo bar`)
 }
 
 // omitted amount
-a.strictEqual(generateQrCode({
+strictEqual(generateQrCode({
 	...ex1,
 	amount: null,
 }), `\
